@@ -81,6 +81,13 @@ echo '{"jsonrpc":"2.0","method":"tools/call","params":{"name":"read_file","argum
 
 ---
 
+## Demo
+
+Watch the 30-second terminal demonstration of OpenGuard blocking unauthorized tool calls:  
+▶️ **[Watch OpenGuard Demo on YouTube](https://youtu.be/QcwvTzAy-i4)**
+
+---
+
 ## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE).
