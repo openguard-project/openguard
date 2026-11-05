@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up CMake and Clang
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake clang ninja-build
+
+    - name: Configure CMake
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++
+
+    - name: Build
+      run: cmake --build build -j$(nproc)
+
+    - name: Run CTest
+      run: ctest --test-dir build --output-on-failure
